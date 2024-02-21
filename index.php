@@ -30,5 +30,14 @@
             <h1 class="text-center my-4 text-uppercase fw-bold">Password Generator</h1>
         </div>
     </header>
+
+    <!-- Main -->
+    <main>
+
+        <!-- Section Form -->
+        <section id="section-form">
+            <div class="container"></div>
+        </section>
+    </main>
 </body>
 </html>
