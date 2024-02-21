@@ -42,6 +42,7 @@
                         <label for="input-number" class="form-label">Lunghezza Password:</label>
                         <input type="number" class="form-control" id="input-number" min="1" max="9" name="password">
                     </div>
+                    <button class="btn btn-primary">Invia</button>
                 </form>
             </div>
         </section>
