@@ -23,6 +23,12 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1 class="text-center my-4 text-uppercase fw-bold">Password Generator</h1>
+        </div>
+    </header>
 </body>
 </html>
