@@ -30,5 +30,22 @@
             <h1 class="text-center my-4 text-uppercase fw-bold">Password Generator</h1>
         </div>
     </header>
+
+    <!-- Main -->
+    <main>
+
+        <!-- Section Form -->
+        <section id="section-form">
+            <div class="container">
+                <form action="" method="get" class="form">
+                    <div class="mb-3 d-flex gap-4 align-items-center">
+                        <label for="input-number" class="form-label">Lunghezza Password:</label>
+                        <input type="number" class="form-control" id="input-number" min="1" max="9" name="password_length">
+                    </div>
+                    <button class="btn btn-primary">Invia</button>
+                </form>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
