@@ -1,26 +1,13 @@
 <?php 
 // Creo la variabile title per dare il nome alla pagina
-$title = 'Password Generator';
+$title = 'Password';
 
 // Richiamo il file delle funzioni
 include_once __DIR__ . '/includes/utils/functions.php';
 
-// Recupero i dati inviati dal form
-$password_length = $_GET['password_length'] ?? '';
+// Starto la sessione
+session_start();
 
-// Creo un if per controllare se la variabile è vuota
-if ($password_length) {
-
-    // Starto la sessione
-    session_start();
-    
-    $_SESSION['password'] = password_generator($password_length);
-
-    var_dump($_SESSION['password']);
-
-    header('Location: password.php');
-
-}
 ?>
 
 <!DOCTYPE html>
@@ -52,25 +39,12 @@ if ($password_length) {
     <!-- Header -->
     <header>
         <div class="container">
-            <h1 class="text-center my-4 text-uppercase fw-bold">Password Generator</h1>
+            <h1 class="text-center my-4 text-uppercase fw-bold">Password</h1>
+            <?php if($_SESSION['password']) : ?>
+                <div class="alert alert-primary text-center fs-2" role="alert">La password generata è: <?= $_SESSION['password'] ?></div>
+            <?php endif ?>
         </div>
     </header>
-
-    <!-- Main -->
-    <main>
-
-        <!-- Section Form -->
-        <section id="section-form">
-            <div class="container">
-                <form action="" method="get" class="form">
-                    <div class="mb-3 d-flex gap-4 align-items-center">
-                        <label for="input-number" class="form-label">Lunghezza Password:</label>
-                        <input type="number" class="form-control" id="input-number" min="1" name="password_length" value="<?= $password_length ?>">
-                    </div>
-                    <button class="btn btn-primary">Invia</button>
-                </form>
-            </div>
-        </section>
-    </main>
+    
 </body>
 </html>
