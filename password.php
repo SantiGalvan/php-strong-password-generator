@@ -1,3 +1,15 @@
+<?php 
+// Creo la variabile title per dare il nome alla pagina
+$title = 'Password';
+
+// Richiamo il file delle funzioni
+include_once __DIR__ . '/includes/utils/functions.php';
+
+// Starto la sessione
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +35,16 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1 class="text-center my-4 text-uppercase fw-bold">Password</h1>
+            <?php if($_SESSION['password']) : ?>
+                <div class="alert alert-primary text-center fs-2" role="alert">La password generata è: <?= $_SESSION['password'] ?></div>
+            <?php endif ?>
+        </div>
+    </header>
     
 </body>
 </html>
