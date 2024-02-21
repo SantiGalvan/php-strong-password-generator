@@ -1,5 +1,12 @@
 <?php 
+// Creo la variabile title per dare il nome alla pagina
+$title = 'Password Generator';
+
+// Richiamo il file delle funzioni
 include __DIR__ . '/includes/utils/functions.php';
+
+// Starto la sessione
+session_start();
 
 // Recupero i dati inviati dal form
 $password_length = $_GET['password_length'] ?? '';
@@ -15,7 +22,7 @@ if ($password_length) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Generator</title>
+    <title><?= $title ?? 'Document'?></title>
 
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
