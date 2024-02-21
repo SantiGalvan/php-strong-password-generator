@@ -14,3 +14,20 @@ body {
 h1 {
     color: #E0E1DD;
 }
+
+/*? Main */
+
+/* Section Form */
+.form {
+    background-color: #415A77;
+    padding: 40px;
+    color: #E0E1DD;
+}
+
+.form-control {
+    flex-basis: 30%;
+}
+
+.form-label {
+    margin: 0;
+}
