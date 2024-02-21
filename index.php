@@ -36,7 +36,14 @@
 
         <!-- Section Form -->
         <section id="section-form">
-            <div class="container"></div>
+            <div class="container">
+                <form action="" method="get" class="form">
+                    <div class="mb-3 d-flex gap-4 align-items-center">
+                        <label for="input-number" class="form-label">Lunghezza Password:</label>
+                        <input type="number" class="form-control" id="input-number" min="1" max="9">
+                    </div>
+                </form>
+            </div>
         </section>
     </main>
 </body>
