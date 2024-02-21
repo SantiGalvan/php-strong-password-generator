@@ -1,3 +1,26 @@
+<?php 
+
+//? FUNZIONI
+function password_generator($length) {
+    $characters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    $password = '';
+
+    for ($i = 0; $i < $length; $i++) {
+        $password .= $characters[rand(0,count($characters) - 1)];
+    }
+
+    return $password;
+}
+
+// Recupero i dati inviati dal form
+$password_length = $_GET['password_length'] ?? '';
+
+// Creo un if per controllare se la variabile è vuota
+if ($password_length) {
+    $password = password_generator($password_length);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,6 +51,9 @@
     <header>
         <div class="container">
             <h1 class="text-center my-4 text-uppercase fw-bold">Password Generator</h1>
+            <?php if(isset($password)) : ?>
+                <div class="alert alert-primary text-center fs-2" role="alert">La password generata è: <?= $password ?></div>
+            <?php endif ?>
         </div>
     </header>
 
@@ -40,7 +66,7 @@
                 <form action="" method="get" class="form">
                     <div class="mb-3 d-flex gap-4 align-items-center">
                         <label for="input-number" class="form-label">Lunghezza Password:</label>
-                        <input type="number" class="form-control" id="input-number" min="1" max="9" name="password_length">
+                        <input type="number" class="form-control" id="input-number" min="1" name="password_length" value="<?= $password_length ?>">
                     </div>
                     <button class="btn btn-primary">Invia</button>
                 </form>
