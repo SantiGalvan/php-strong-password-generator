@@ -3,17 +3,23 @@
 $title = 'Password Generator';
 
 // Richiamo il file delle funzioni
-include __DIR__ . '/includes/utils/functions.php';
-
-// Starto la sessione
-session_start();
+include_once __DIR__ . '/includes/utils/functions.php';
 
 // Recupero i dati inviati dal form
 $password_length = $_GET['password_length'] ?? '';
 
 // Creo un if per controllare se la variabile è vuota
 if ($password_length) {
-    $password = password_generator($password_length);
+
+    // Starto la sessione
+    session_start();
+    
+    $_SESSION['password'] = password_generator($password_length);
+
+    var_dump($_SESSION['password']);
+
+    header('Location: password.php');
+
 }
 ?>
 
@@ -47,9 +53,6 @@ if ($password_length) {
     <header>
         <div class="container">
             <h1 class="text-center my-4 text-uppercase fw-bold">Password Generator</h1>
-            <?php if(isset($password)) : ?>
-                <div class="alert alert-primary text-center fs-2" role="alert">La password generata è: <?= $password ?></div>
-            <?php endif ?>
         </div>
     </header>
 
